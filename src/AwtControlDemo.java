@@ -1,5 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.GraphicsEnvironment;
+import java.util.Arrays;
 
 public class AwtControlDemo {
 
@@ -13,8 +15,8 @@ public class AwtControlDemo {
    }
 
    public static void main(String[] args){
-      AwtControlDemo  awtControlDemo = new AwtControlDemo();
-      awtControlDemo.showEventDemo();
+	   AwtControlDemo  awtControlDemo = new AwtControlDemo();
+       awtControlDemo.showEventDemo();
    }
 
    private void prepareGUI(){
@@ -43,10 +45,13 @@ public class AwtControlDemo {
 
    private void showEventDemo(){
       headerLabel.setText("Dropdown menu test"); 
-
+      GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+      String[] names = ge.getAvailableFontFamilyNames();
+      
       Choice fontFamily = new Choice();
-
-      fontFamily.add("Times New Roman");
+      for ( int i=0; i<names.length; i++ ){
+    	  fontFamily.add(names[i]);
+      }
       controlPanel.add(fontFamily);
       
       mainFrame.setVisible(true);  
