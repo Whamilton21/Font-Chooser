@@ -19,7 +19,7 @@ public class AwtControlDemo {
        awtControlDemo.showEventDemo();
    }
 
-   private void prepareGUI(){
+   public void prepareGUI(){
       mainFrame = new Frame("Java AWT Examples");
       mainFrame.setSize(400,400);
       mainFrame.setLayout(new GridLayout(3, 1));
@@ -43,21 +43,28 @@ public class AwtControlDemo {
       mainFrame.setVisible(true);  
    }
 
-   private void showEventDemo(){
+   public void showEventDemo(){
       headerLabel.setText("Dropdown menu test"); 
       GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
       String[] names = ge.getAvailableFontFamilyNames();
       
       Choice fontFamily = new Choice();
+      
+       
       for ( int i=0; i<names.length; i++ ){
+    	  String firstWord = getFirstWord(names[i]);
+    	  String b = getFirstWord(names[i-1]);
+    	
+    	  
     	  fontFamily.add(names[i]);
+    	 
       }
       controlPanel.add(fontFamily);
       
       mainFrame.setVisible(true);  
    }
 
-   private class ButtonClickListener implements ActionListener{
+   public class fontFamilyListener implements ActionListener{
       public void actionPerformed(ActionEvent e) {
          String command = e.getActionCommand();  
          if( command.equals( "OK" ))  {
@@ -68,7 +75,19 @@ public class AwtControlDemo {
          }
          else  {
             statusLabel.setText("Cancel Button clicked.");
+          
          }  	
       }		
    }
-}
+   public String getFirstWord(String font){
+      String[] fontName = font.split(" ", 2);
+      	
+      	return fontName[0];
+      
+   }
+   public String getNextWords(String font){
+	      String[] fontName = font.split(" ", 2);
+	      	
+	      	return fontName[1];
+   }
+}  
