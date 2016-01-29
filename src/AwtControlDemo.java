@@ -49,12 +49,9 @@ public class AwtControlDemo {
       String[] names = ge.getAvailableFontFamilyNames();
       
       Choice fontFamily = new Choice();
-      
+      Choice fontType   = new Choice();
        
       for ( int i=0; i<names.length; i++ ){
-    	  String firstWord = getFirstWord(names[i]);
-    	  String b = getFirstWord(names[i-1]);
-    	
     	  
     	  fontFamily.add(names[i]);
     	 
@@ -64,21 +61,6 @@ public class AwtControlDemo {
       mainFrame.setVisible(true);  
    }
 
-   public class fontFamilyListener implements ActionListener{
-      public void actionPerformed(ActionEvent e) {
-         String command = e.getActionCommand();  
-         if( command.equals( "OK" ))  {
-            statusLabel.setText("Ok Button clicked.");
-         }
-         else if( command.equals( "Submit" ) )  {
-            statusLabel.setText("Submit Button clicked."); 
-         }
-         else  {
-            statusLabel.setText("Cancel Button clicked.");
-          
-         }  	
-      }		
-   }
    public String getFirstWord(String font){
       String[] fontName = font.split(" ", 2);
       	
