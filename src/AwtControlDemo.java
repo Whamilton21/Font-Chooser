@@ -44,19 +44,25 @@ public class AwtControlDemo {
    }
 
    public void showEventDemo(){
-      headerLabel.setText("Dropdown menu test"); 
+      headerLabel.setText(""); 
       GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
       String[] names = ge.getAvailableFontFamilyNames();
       
       Choice fontFamily = new Choice();
-      Choice fontType   = new Choice();
+      Choice fontStyle  = new Choice();
        
       for ( int i=0; i<names.length; i++ ){
     	  
     	  fontFamily.add(names[i]);
     	 
       }
+      
+      fontStyle.add("Bold");
+      fontStyle.add("Underline");
+      fontStyle.add("Italic");
+      
       controlPanel.add(fontFamily);
+      controlPanel.add(fontStyle);
       
       mainFrame.setVisible(true);  
    }
