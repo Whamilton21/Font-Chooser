@@ -9,12 +9,12 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 
 
-public class fontSelector extends Applet
+public class FontSelector extends Applet
 {
 	JPanel panel;
 	JFrame frame;
 	
-	public fontSelector() {
+	public FontSelector() {
 		setSize(800,800);
 		init();
 	
