@@ -2,65 +2,33 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.GraphicsEnvironment;
 import java.util.Arrays;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
 
-public class AwtControlDemo {
+public class AwtControlDemo extends JFrame implements ActionListener {
 
-   private Frame mainFrame;
-   private Label headerLabel;
-   private Label statusLabel;
-   private Panel controlPanel;
+   private JComboBox fontComboBox;
+  
 
    public AwtControlDemo(){
-      prepareGUI();
-   }
-
-   public static void main(String[] args){
-	   AwtControlDemo  awtControlDemo = new AwtControlDemo();
-       awtControlDemo.showEventDemo();
-   }
-
-   public void prepareGUI(){
-      mainFrame = new Frame("Java AWT Examples");
-      mainFrame.setSize(400,400);
-      mainFrame.setLayout(new GridLayout(3, 1));
-      mainFrame.addWindowListener(new WindowAdapter() {
-         public void windowClosing(WindowEvent windowEvent){
-            System.exit(0);
-         }        
-      });    
-      headerLabel = new Label();
-      headerLabel.setAlignment(Label.CENTER);
-      statusLabel = new Label();        
-      statusLabel.setAlignment(Label.CENTER);
-      statusLabel.setSize(350,100);
-
-      controlPanel = new Panel();
-      controlPanel.setLayout(new FlowLayout());
-
-      mainFrame.add(headerLabel);
-      mainFrame.add(controlPanel);
-      mainFrame.add(statusLabel);
-      mainFrame.setVisible(true);  
-   }
-
-   public void showEventDemo(){
-      headerLabel.setText("Dropdown menu test"); 
+      setTitle("Font Chooser");
+      setSize(500,500);
+      addWindowListener(new WindowAdapter() {
+    	  public void windowClosing(WindowEvent e) {
+    		  System.exit(0);
+      }
+   });
+      
+  fontComboBox = new JComboBox();
+  fontComboBox.setEditable(true);
+  fontComboBox.addActionListener(this);
+  
       GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
       String[] names = ge.getAvailableFontFamilyNames();
-      
-      Choice fontFamily = new Choice();
-      Choice fontType   = new Choice();
-       
       for ( int i=0; i<names.length; i++ ){
-    	  
-    	  fontFamily.add(names[i]);
-    	 
-      }
-      controlPanel.add(fontFamily);
-      
-      mainFrame.setVisible(true);  
+    	  fontComboBox.addItem(names[i]);
+    	 }
    }
-
    public String getFirstWord(String font){
       String[] fontName = font.split(" ", 2);
       	
@@ -72,4 +40,6 @@ public class AwtControlDemo {
 	      	
 	      	return fontName[1];
    }
+   
+   
 }  
