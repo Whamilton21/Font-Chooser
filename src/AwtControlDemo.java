@@ -44,7 +44,7 @@ public class AwtControlDemo {
    }
 
    public void showEventDemo(){
-      headerLabel.setText(""); 
+      headerLabel.setText("Font Choices"); 
       GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
       String[] names = ge.getAvailableFontFamilyNames();
       

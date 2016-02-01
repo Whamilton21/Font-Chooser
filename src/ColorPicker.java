@@ -23,7 +23,7 @@ public class ColorPicker extends JFrame {
     setDefaultCloseOperation(EXIT_ON_CLOSE);
   }
 
-  public static void main(String args[]) {
+  public static void main (String args[]) {
     ColorPicker cp = new ColorPicker();
     cp.setVisible(true);
   }
