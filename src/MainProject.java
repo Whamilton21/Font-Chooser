@@ -12,26 +12,25 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 
 public class MainProject extends JFrame implements ActionListener {
-	String message = "<html>"
-			+ "The quick brown fox jumped over the lazy dog’s back.<br>"
-			+ "Pack my box with five dozen liquor jugs.<br>"
-			+ "Jackdaws love my big sphinx of quartz.<br>"
-			+ "Mr. Jock, TV quiz PhD, bags few lynx.<br>"
-			+ "abcdefghijklmnopqrstuvwxyz<br>"
-			+ "ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>"
+	String message = "\nThe quick brown fox jumped over the lazy dog’s back.\n"
+			+ "Pack my box with five dozen liquor jugs.\n"
+			+ "Jackdaws love my big sphinx of quartz.\n"
+			+ "Mr. Jock, TV quiz PhD, bags few lynx.\n"
+			+ "abcdefghijklmnopqrstuvwxyz\n"
+			+ "ABCDEFGHIJKLMNOPQRSTUVWXYZ\n"
 			+ "01234567890<br>"
-			+ "€†™´¸¢©¤°÷½¼¾>¡¿«‘’<¯µ ·¬ªº¶±£\"»®§­¹²³ß×™\\¨¥<br>"
-			+ "ÀÁÂÃÄÅÆÇÈÉ ÊËÌÍÎÏÐÑÒÓÔ ÕÖØÙÚÛÜÝÞÿ<br>"
-			+ "àáâãäåæçèé êëìíîïðñòóô õöøùúûüýþÿ<br>"
-			+ "!\"#$%&'()*+,-./:;<=>?@[\\^_z{|}~<br>"
-			+ "uvw wW gq9 2z 5s il17|!j oO08 `'\" ;:,. m nn rn {[()]}u\");<br>"
-			+ "</html>";
+			+ "€†™´¸¢©¤°÷½¼¾>¡¿«‘’<¯µ ·¬ªº¶±£\"»®§­¹²³ß×™\\¨¥\n"
+			+ "ÀÁÂÃÄÅÆÇÈÉ ÊËÌÍÎÏÐÑÒÓÔ ÕÖØÙÚÛÜÝÞÿ\n"
+			+ "àáâãäåæçèé êëìíîïðñòóô õöøùúûüýþÿ\n"
+			+ "!\"#$%&'()*+,-./:;<=>?@[\\^_z{|}~\n"
+			+ "uvw wW gq9 2z 5s il17|!j oO08 `'\" ;:,. m nn rn {[()]}u\");\n";
 					
 	
-			JLabel fontLabel = new JLabel(message);
+			JTextArea fontLabel = new JTextArea(message);
       
 
   private JComboBox fontPicker;
