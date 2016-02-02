@@ -38,14 +38,13 @@ public class MainProject extends JFrame implements ActionListener {
   String tfont = "Arial";
   
   private JButton Button1 = new JButton("Text Color");
+  
   private JButton Button2 = new JButton ("Background Color");
 
- 
-
-
+  
   public MainProject() { 
     setTitle("Choose Your Font, Color, and Background");
-    setSize(1250, 1000);
+    setSize(900, 500);
     addWindowListener(new WindowAdapter() {
       public void windowClosing(WindowEvent e) {
         System.exit(0);
@@ -88,7 +87,7 @@ public class MainProject extends JFrame implements ActionListener {
     getContentPane().add(b);
     b.setBounds(75, 250, 150, 50);
     getContentPane().add(fontLabel);
-    fontLabel.setBounds(400,200,700,500);
+    fontLabel.setBounds(400,100,400,250);
   }
 
 
