@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-
+//set up text area with pangrams we were given
 public class MainProject extends JFrame implements ActionListener {
 	String message = "\nThe quick brown fox jumped over the lazy dog’s back.\n"
 			+ "Pack my box with five dozen liquor jugs.\n"
@@ -32,7 +32,7 @@ public class MainProject extends JFrame implements ActionListener {
 	
 			JTextArea fontArea = new JTextArea(message);
       
-
+//create classes for drop down menus and buttons
   public JComboBox fontPicker;
   int tsize = 12;
   String tfont = "Arial";
@@ -43,7 +43,7 @@ public class MainProject extends JFrame implements ActionListener {
   
   public JButton Button2 = new JButton ("Background Color");
 
-  
+  //Set up window of GUI
   public MainProject() { 
     setTitle("Choose Your Font, Color, and Background");
     setSize(900, 500);
@@ -54,42 +54,42 @@ public class MainProject extends JFrame implements ActionListener {
     });
     
     
-
+//create JComboBox of the font families and one of font styles
     fontPicker = new JComboBox();
     JComboBox fontStyle = new JComboBox();
     
     String regular = "-";
     String bold = "Bold";
     String italics = "Italics";
-    
+    //populate menu of font styles
     fontStyle.addItem(regular);
     fontStyle.addItem(bold);
     fontStyle.addItem(italics);
-    
+    //populate menu of font familes present on machine
     GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
     String[] names = ge.getAvailableFontFamilyNames();
     for ( int i=0; i<names.length; i++ )
     {
        fontPicker.addItem(names[i]);
     }
-
+//add listeners for the buttons and menus created
     fontPicker.addActionListener(this);
     fontStyle.addActionListener(this);
     Button1.addActionListener(new ButtonListener());
     Button2.addActionListener(new ButtonListener());
    
-   
+ //create panels  
     setLayout(null);
     JPanel p = new JPanel();
     JPanel f = new JPanel();
     JPanel b = new JPanel();
-    
+   //add buttons and menus to panels
     p.add(fontPicker);
     p.add(fontStyle);
     f.add(Button1);
     b.add(Button2);
    
-    
+   //set dimensions of panels 
     getContentPane().add(p);
     p.setBounds(45, 100, 300, 100);
     getContentPane().add(f);
@@ -99,7 +99,7 @@ public class MainProject extends JFrame implements ActionListener {
     getContentPane().add(fontArea);
     fontArea.setBounds(400,100,400,250);
   }
-
+//create listener to change the font of pangrams based on drop down menu
   public void actionPerformed(ActionEvent evt) {
     JComboBox source = (JComboBox) evt.getSource();
     
@@ -110,7 +110,7 @@ public class MainProject extends JFrame implements ActionListener {
     	fontArea.setFont(Font.decode(font));
   
     }
-    
+//checks which style is selected and changes the font based on it 
     if (source == fontStyle){
     	String regular = "-";
         String bold = "Bold";
@@ -139,12 +139,12 @@ public class MainProject extends JFrame implements ActionListener {
     	
   
  
-
+//build GUI
 public static void main(String[] args) {
     JFrame frame = new MainProject();
     frame.show();
   }
-
+//set up listener for the color choosers
   public class ButtonListener implements ActionListener {
 	    public void actionPerformed(ActionEvent e) {
 	    	  JButton src = (JButton) e.getSource();
