@@ -13,32 +13,23 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-String message = "The quick brown fox jumped over the lazy dog’s back. \n"
-				+ "Pack my box with five dozen liquor jugs.\n"
-				+ "Jackdaws love my big sphinx of quartz.\n"
-				+ "Mr. Jock, TV quiz PhD, bags few lynx. \n"
-				+ "abcdefghijklmnopqrstuvwxyz \n"
-				+ "ABCDEFGHIJKLMNOPQRSTUVWXYZ \n"
-				+ "01234567890 \n"
-				+ "€†™´¸¢©¤°÷½¼¾>¡¿«‘’<¯µ ·¬ªº¶±£\"»®§­¹²³ß×™\\¨¥ \n"
-				+ "ÀÁÂÃÄÅÆÇÈÉ ÊËÌÍÎÏÐÑÒÓÔ ÕÖØÙÚÛÜÝÞÿ \n"
-				+ "àáâãäåæçèé êëìíîïðñòóô õöøùúûüýþÿ \n"
-				+ "!\"#$%&'()*+,-./:;<=>?@[\^_z{|}~ \n"
-				+ "uvw wW gq9 2z 5s il17|!j oO08 `'\" ;:,. m nn rn {[()]}u\"); \n"
 
 public class MainProject extends JFrame implements ActionListener {
-	String message = "The quick brown fox jumped over the lazy dog’s back. \n"
-			+ "Pack my box with five dozen liquor jugs.\n"
-			+ "Jackdaws love my big sphinx of quartz.\n"
-			+ "Mr. Jock, TV quiz PhD, bags few lynx. \n"
-			+ "abcdefghijklmnopqrstuvwxyz \n"
-			+ "ABCDEFGHIJKLMNOPQRSTUVWXYZ \n"
-			+ "01234567890 \n"
-			+ "€†™´¸¢©¤°÷½¼¾>¡¿«‘’<¯µ ·¬ªº¶±£\"»®§­¹²³ß×™\\¨¥ \n"
-			+ "ÀÁÂÃÄÅÆÇÈÉ ÊËÌÍÎÏÐÑÒÓÔ ÕÖØÙÚÛÜÝÞÿ \n"
-			+ "àáâãäåæçèé êëìíîïðñòóô õöøùúûüýþÿ \n"
-			+ "!\"#$%&'()*+,-./:;<=>?@[\^_z{|}~ \n"
-			+ "uvw wW gq9 2z 5s il17|!j oO08 `'\" ;:,. m nn rn {[()]}u\"); \n";
+	String message = "<html>"
+			+ "The quick brown fox jumped over the lazy dog’s back.<br>"
+			+ "Pack my box with five dozen liquor jugs.<br>"
+			+ "Jackdaws love my big sphinx of quartz.<br>"
+			+ "Mr. Jock, TV quiz PhD, bags few lynx.<br>"
+			+ "abcdefghijklmnopqrstuvwxyz<br>"
+			+ "ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>"
+			+ "01234567890<br>"
+			+ "€†™´¸¢©¤°÷½¼¾>¡¿«‘’<¯µ ·¬ªº¶±£\"»®§­¹²³ß×™\\¨¥<br>"
+			+ "ÀÁÂÃÄÅÆÇÈÉ ÊËÌÍÎÏÐÑÒÓÔ ÕÖØÙÚÛÜÝÞÿ<br>"
+			+ "àáâãäåæçèé êëìíîïðñòóô õöøùúûüýþÿ<br>"
+			+ "!\"#$%&'()*+,-./:;<=>?@[\\^_z{|}~<br>"
+			+ "uvw wW gq9 2z 5s il17|!j oO08 `'\" ;:,. m nn rn {[()]}u\");<br>"
+			+ "</html>";
+					
 	
 			JLabel fontLabel = new JLabel(message);
       
@@ -46,6 +37,7 @@ public class MainProject extends JFrame implements ActionListener {
   private JComboBox fontPicker;
   int tsize = 12;
   String tfont = "Arial";
+  
   private JButton Button1 = new JButton("Text Color");
   private JButton Button2 = new JButton ("Background Color");
 
@@ -64,7 +56,6 @@ public class MainProject extends JFrame implements ActionListener {
     
 
     fontPicker = new JComboBox();
-    fontPicker.setEditable(true);
     fontPicker.addActionListener(this);
     
     GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -75,13 +66,10 @@ public class MainProject extends JFrame implements ActionListener {
     }
 
     
-  
-   
     Button1.addActionListener(new ButtonListener());
     Button2.addActionListener(new ButtonListener());
    
    
-    
     setLayout(null);
     JPanel p = new JPanel();
     JPanel f = new JPanel();
