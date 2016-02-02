@@ -33,13 +33,15 @@ public class MainProject extends JFrame implements ActionListener {
 			JTextArea fontLabel = new JTextArea(message);
       
 
-  private JComboBox fontPicker;
+  public JComboBox fontPicker;
   int tsize = 12;
   String tfont = "Arial";
   
-  private JButton Button1 = new JButton("Text Color");
+  public JComboBox fontStyle;
   
-  private JButton Button2 = new JButton ("Background Color");
+  public JButton Button1 = new JButton("Text Color");
+  
+  public JButton Button2 = new JButton ("Background Color");
 
   
   public MainProject() { 
@@ -54,7 +56,15 @@ public class MainProject extends JFrame implements ActionListener {
     
 
     fontPicker = new JComboBox();
-    fontPicker.addActionListener(this);
+    JComboBox fontStyle = new JComboBox();
+    
+    String bold = "Bold";
+    String underline = "Underline";
+    String italics = "Italics";
+    
+    fontStyle.addItem(bold);
+    fontStyle.addItem(underline);
+    fontStyle.addItem(italics);
     
     GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
     String[] names = ge.getAvailableFontFamilyNames();
@@ -63,7 +73,8 @@ public class MainProject extends JFrame implements ActionListener {
        fontPicker.addItem(names[i]);
     }
 
-    
+    fontPicker.addActionListener(this);
+    fontStyle.addActionListener(this);
     Button1.addActionListener(new ButtonListener());
     Button2.addActionListener(new ButtonListener());
    
@@ -74,8 +85,7 @@ public class MainProject extends JFrame implements ActionListener {
     JPanel b = new JPanel();
     
     p.add(fontPicker);
-    
-   
+    p.add(fontStyle);
     f.add(Button1);
     b.add(Button2);
    
@@ -90,9 +100,6 @@ public class MainProject extends JFrame implements ActionListener {
     fontLabel.setBounds(400,100,400,250);
   }
 
-
-  
-  
   public void actionPerformed(ActionEvent evt) {
     JComboBox source = (JComboBox) evt.getSource();
 
@@ -102,6 +109,10 @@ public class MainProject extends JFrame implements ActionListener {
     	fontLabel.setFont(new Font(font, Font.PLAIN, tsize));
     	tfont = font;
     }
+    if (source == fontStyle){
+    	String style = (String) source.getSelectedItem();
+    	fontLabel.setFont(new Font(font, Font.style, tsize));
+    }
   }
  
   public static void main(String[] args) {
@@ -109,7 +120,7 @@ public class MainProject extends JFrame implements ActionListener {
     frame.show();
   }
 
-  private class ButtonListener implements ActionListener {
+  public class ButtonListener implements ActionListener {
 	    public void actionPerformed(ActionEvent e) {
 	    	  JButton src = (JButton) e.getSource();
 
