@@ -30,7 +30,7 @@ public class MainProject extends JFrame implements ActionListener {
 			+ "uvw wW gq9 2z 5s il17|!j oO08 `'\" ;:,. m nn rn {[()]}u\");\n";
 					
 	
-			JTextArea fontLabel = new JTextArea(message);
+			JTextArea fontArea = new JTextArea(message);
       
 
   public JComboBox fontPicker;
@@ -58,12 +58,12 @@ public class MainProject extends JFrame implements ActionListener {
     fontPicker = new JComboBox();
     JComboBox fontStyle = new JComboBox();
     
+    String regular = "-";
     String bold = "Bold";
-    String underline = "Underline";
     String italics = "Italics";
     
+    fontStyle.addItem(regular);
     fontStyle.addItem(bold);
-    fontStyle.addItem(underline);
     fontStyle.addItem(italics);
     
     GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
@@ -96,26 +96,51 @@ public class MainProject extends JFrame implements ActionListener {
     f.setBounds(52,200,150,50);
     getContentPane().add(b);
     b.setBounds(75, 250, 150, 50);
-    getContentPane().add(fontLabel);
-    fontLabel.setBounds(400,100,400,250);
+    getContentPane().add(fontArea);
+    fontArea.setBounds(400,100,400,250);
   }
 
   public void actionPerformed(ActionEvent evt) {
     JComboBox source = (JComboBox) evt.getSource();
-
+    
     if (source == fontPicker) 
     {
     	String font = (String) source.getSelectedItem();
-    	fontLabel.setFont(new Font(font, Font.PLAIN, tsize));
-    	tfont = font;
+    	
+    	fontArea.setFont(Font.decode(font));
+  
     }
+    
     if (source == fontStyle){
-    	String style = (String) source.getSelectedItem();
-    	fontLabel.setFont(new Font(font, Font.style, tsize));
+    	String regular = "-";
+        String bold = "Bold";
+        String italics = "Italics";
+    	
+        if (fontStyle.getSelectedItem() == regular){
+			
+			Font fonts = fontArea.getFont();  
+			
+			fontArea.setFont(fonts.deriveFont(Font.PLAIN));
+        }
+        
+		if (fontStyle.getSelectedItem() == bold){
+			
+			Font fonts = fontArea.getFont();  
+			
+			fontArea.setFont(fonts.deriveFont(Font.BOLD));
+		}
+    	if (fontStyle.getSelectedItem() == italics){
+    		Font fonts = fontArea.getFont();
+    		
+    		fontArea.setFont(fonts.deriveFont(Font.ITALIC));
+    	}
     }
-  }
+    	}
+    	
+  
  
-  public static void main(String[] args) {
+
+public static void main(String[] args) {
     JFrame frame = new MainProject();
     frame.show();
   }
@@ -126,16 +151,16 @@ public class MainProject extends JFrame implements ActionListener {
 
 	    	    if (src == Button1) 
 	    	    {
-	    	    	 Color c = JColorChooser.showDialog(null, "Choose the Color of Your Font", fontLabel.getForeground());
+	    	    	 Color c = JColorChooser.showDialog(null, "Choose the Color of Your Font", fontArea.getForeground());
 	    		      if (c != null)
-	    		        fontLabel.setForeground(c);
+	    		        fontArea.setForeground(c);
 	    	    }
 	    	    if (src == Button2)
 	    	    {
-	    	    	 Color b = JColorChooser.showDialog(null, "Choose the Background Color", fontLabel.getBackground());
+	    	    	 Color b = JColorChooser.showDialog(null, "Choose the Background Color", fontArea.getBackground());
 	    		      if (b != null)
-	    		    	  fontLabel.setBackground(b);
-	    		      	fontLabel.setOpaque(true);
+	    		    	  fontArea.setBackground(b);
+	    		      	fontArea.setOpaque(true);
 	    	    }
 	  
 }
